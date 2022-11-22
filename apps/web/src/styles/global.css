@@ -1,1 +1,9 @@
-@import url("@portfolio/styles/common.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-fira_code text-white bg-gray-800;
+  }
+}

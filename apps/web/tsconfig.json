@@ -1,3 +1,20 @@
 {
-  "extends": "@portfolio/tsconfig/astro.json"
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/pages/*": [
+        "pages/*"
+      ],
+      "@/styles/*": [
+        "styles/*"
+      ],
+      "@/layouts/*": [
+        "layouts/*"
+      ],
+    }
+  }
 }

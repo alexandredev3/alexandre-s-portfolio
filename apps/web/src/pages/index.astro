@@ -1,37 +1,62 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import * as Icon from "@astropub/icons";
+
+import Layout from "@/layouts/Layout.astro";
+
+import Button from "@/components/Button.astro";
+
+const LINKS = [
+  {
+    label: "home",
+    to: "#",
+  },
+  {
+    label: "works",
+    to: "#",
+  },
+  {
+    label: "about-me",
+    to: "#",
+  },
+  {
+    label: "contacts",
+    to: "#",
+  },
+];
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Alexandre's nice portfolio">
+  <header class="flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <Icon.Code class="w-5 h-5 stroke-yellow-300" />
+      <h1 class="text-sm">Alexandre C.</h1>
+    </div>
+
+    <nav>
+      <ol class="flex items-center gap-8">
+        {
+          LINKS.map(({ label, to }) => (
+            <li>
+              <a href={to}>
+                <span class="text-yellow-300">#</span>
+                {label}
+              </a>
+            </li>
+          ))
+        }
+        <!-- <li>language</li> -->
+      </ol>
+    </nav>
+  </header>
+
   <main>
-    <h1>Welcome to <span class="text-gradient">Astro</span></h1>
-    <p class="instructions">
-      To get started, open the directory <code>src/pages</code> in your project.<br
-      />
-      <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
+    <h1 class="text-lg mt-36">
+      Alexandre is a
+      <strong class="text-yellow-300">web <br /> developer</strong>
+    </h1>
+    <p class="max-w-[462px] w-full mt-8 text-gray-200 leading-6">
+      He crafts responsive websites where technologies meet creativity
     </p>
-    <ul role="list" class="link-card-grid">
-      <Card
-        href="https://docs.astro.build/"
-        title="Documentation"
-        body="Learn how Astro works and explore the official API docs."
-      />
-      <Card
-        href="https://astro.build/integrations/"
-        title="Integrations"
-        body="Supercharge your project with new frameworks and libraries."
-      />
-      <Card
-        href="https://astro.build/themes/"
-        title="Themes"
-        body="Explore a galaxy of community-built starter themes."
-      />
-      <Card
-        href="https://astro.build/chat/"
-        title="Community"
-        body="Come say hi to our amazing Discord community. ❤️"
-      />
-    </ul>
+    <Button class="mt-6" type="button">Contact me!!</Button>
   </main>
 </Layout>
