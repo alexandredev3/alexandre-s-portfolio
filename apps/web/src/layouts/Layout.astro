@@ -3,11 +3,25 @@ import "@fontsource/fira-code";
 
 import "../styles/global.css";
 
-import * as Icon from "@astropub/icons";
+import { Icon } from "astro-icon";
 
 export interface Props {
   title: string;
 }
+
+const SOCIAL = [
+  {
+    label: "Link to Alexandre's Github account",
+    icon: "fe:github",
+    url: "https://github.com/alexandredev3",
+  },
+  {
+    label: "Link to Alexandre's Linkedin account",
+    icon: "ph:linkedin-logo-fill",
+    // TODO: change URL locale according to the user's locale.
+    url: "https://www.linkedin.com/in/alexandre-costa-dos-santos/?locale=en_US",
+  },
+];
 
 const { title } = Astro.props;
 ---
@@ -25,17 +39,21 @@ const { title } = Astro.props;
     <div class="absolute bottom-0 top-0 left-8">
       <div class="flex flex-col items-center">
         <div class="bg-gray-200 w-[1px] h-[198px]"></div>
-        <a
-          href="https://github.com/alexandredev3"
-          target="_blank"
-          class="group mt-2"
-          aria-label="Link to Alexandre's Github account"
-        >
-          <Icon.GitHubLogo
-            class="fill-gray-200 w-8 h-8 group-hover:fill-gray-500 transition-all"
-            focusable="false"
-          />
-        </a>
+        <ul>
+          {
+            SOCIAL.map(({ label, icon, url }) => (
+              <li class="mt-2">
+                <a href={url} target="_blank" class="group" aria-label={label}>
+                  <Icon
+                    name={icon}
+                    class="text-gray-200 w-8 h-8 group-hover:text-gray-500 transition-all"
+                    focusable="false"
+                  />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </div>
     </div>
     <div class="w-[1024px] m-auto p-8">

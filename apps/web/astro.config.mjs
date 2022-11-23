@@ -14,5 +14,10 @@ export default defineConfig({
       }
     }),
     react()
-  ]
+  ],
+  vite: {
+    ssr: {
+      external: ['svgo']
+    }
+  }
 });
