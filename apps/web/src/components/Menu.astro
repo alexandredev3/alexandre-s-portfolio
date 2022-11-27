@@ -1,11 +1,18 @@
 ---
+import type { HTMLAttributes } from "react";
 import { Icon } from "astro-icon";
 import { Menu } from "@portfolio/react";
 
 import { routes, social } from "../constants";
+
+type Props = Omit<HTMLAttributes<HTMLDivElement>, "className"> & {
+  class: string;
+};
+
+const { class: className, ...rest } = Astro.props;
 ---
 
-<Menu client:load className="sm:hidden block">
+<Menu client:load className={className} {...rest}>
   <div>
     <ol class="mt-12">
       {

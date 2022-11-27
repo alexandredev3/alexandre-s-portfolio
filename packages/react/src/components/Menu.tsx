@@ -1,7 +1,7 @@
 import { type HTMLAttributes, useState } from "react";
 import { List, X } from "phosphor-react";
 
-import { Portal } from '../Portal';
+import { Portal } from './Portal';
 
 type MenuProps = HTMLAttributes<HTMLDivElement>;
 
