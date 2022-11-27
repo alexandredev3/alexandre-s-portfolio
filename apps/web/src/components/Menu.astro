@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon";
+import { Menu } from "@portfolio/react";
+
+import { routes, social } from "../constants";
+---
+
+<Menu client:load className="sm:hidden block">
+  <div>
+    <ol class="mt-12">
+      {
+        routes.map(({ label, pathname }) => (
+          <li class="mt-8 first:mt-0">
+            <a href={pathname} class="text-lg">
+              <span class="text-yellow-300">
+                #<span class="text-white">{label}</span>
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+  <footer class="absolute bottom-0 right-[50%] translate-x-[50%] p-8">
+    <ul class="flex items-center gap-5">
+      {
+        social.map(({ label, icon, url }) => (
+          <li class="mt-2">
+            <a href={url} target="_blank" class="group" aria-label={label}>
+              <Icon
+                name={icon}
+                class="text-gray-200 w-12 h-12 group-hover:text-gray-500 transition-all"
+                focusable="false"
+              />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </footer>
+</Menu>

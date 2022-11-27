@@ -5,23 +5,11 @@ import "../styles/global.css";
 
 import { Icon } from "astro-icon";
 
+import { social } from "../constants/social";
+
 export interface Props {
   title: string;
 }
-
-const SOCIAL = [
-  {
-    label: "Link to Alexandre's Github account",
-    icon: "fe:github",
-    url: "https://github.com/alexandredev3",
-  },
-  {
-    label: "Link to Alexandre's Linkedin account",
-    icon: "ph:linkedin-logo-fill",
-    // TODO: change URL locale according to the user's locale.
-    url: "https://www.linkedin.com/in/alexandre-costa-dos-santos/?locale=en_US",
-  },
-];
 
 const { title } = Astro.props;
 ---
@@ -41,7 +29,7 @@ const { title } = Astro.props;
         <div class="bg-gray-200 w-[1px] h-[198px]"></div>
         <ul>
           {
-            SOCIAL.map(({ label, icon, url }) => (
+            social.map(({ label, icon, url }) => (
               <li class="mt-2">
                 <a href={url} target="_blank" class="group" aria-label={label}>
                   <Icon
@@ -55,7 +43,7 @@ const { title } = Astro.props;
           }
         </ul>
       </div>
-      <div class="w-[1024px] m-auto p-8">
+      <div class="w-[1024px] m-auto md:p-8 p-4">
         <slot />
       </div>
     </div>

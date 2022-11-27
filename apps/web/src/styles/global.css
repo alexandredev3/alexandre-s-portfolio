@@ -1,9 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("@portfolio/styles/common.css");
 
-@layer base {
-  body {
-    @apply font-fira_code text-white bg-gray-800;
-  }
+.menu-panel {
+  @apply absolute top-[62px] w-full h-full p-4 bg-gray-800;
 }

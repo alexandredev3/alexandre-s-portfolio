@@ -24,6 +24,7 @@ importers:
       '@astrojs/tailwind': ^2.1.2
       '@fontsource/fira-code': ^4.5.12
       '@portfolio/react': workspace:*
+      '@portfolio/styles': workspace:*
       '@portfolio/tsconfig': workspace:*
       '@types/react': ^18.0.25
       '@types/react-dom': ^18.0.9
@@ -35,13 +36,14 @@ importers:
       tailwindcss: ^3.0.24
     dependencies:
       '@fontsource/fira-code': 4.5.12
+      '@portfolio/react': link:../../packages/react
       astro: 1.6.10
       astro-icon: 0.8.0
       clsx: 1.2.1
     devDependencies:
       '@astrojs/react': 1.2.2_cn3ejhfta5lq2dae4xucvtkwvu
       '@astrojs/tailwind': 2.1.2_tailwindcss@3.2.4
-      '@portfolio/react': link:../../packages/react
+      '@portfolio/styles': link:../../packages/styles
       '@portfolio/tsconfig': link:../../packages/tsconfig
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
@@ -68,19 +70,40 @@ importers:
 
   packages/react:
     specifiers:
+      '@portfolio/styles': workspace:*
       '@portfolio/tsconfig': workspace:*
       '@types/react': ^18.0.25
       '@types/react-dom': ^18.0.9
+      autoprefixer: ^10.4.13
+      phosphor-react: ^1.4.1
+      postcss: ^8.4.19
       react: ^18.2.0
       react-dom: ^18.2.0
+      tailwindcss: ^3.0.24
       typescript: ^4.7.4
+    dependencies:
+      phosphor-react: 1.4.1_react@18.2.0
     devDependencies:
+      '@portfolio/styles': link:../styles
       '@portfolio/tsconfig': link:../tsconfig
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
+      autoprefixer: 10.4.13_postcss@8.4.19
+      postcss: 8.4.19
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      tailwindcss: 3.2.4_postcss@8.4.19
       typescript: 4.9.3
+
+  packages/styles:
+    specifiers:
+      autoprefixer: ^10.4.13
+      postcss: ^8.4.19
+      tailwindcss: ^3.0.24
+    devDependencies:
+      autoprefixer: 10.4.13_postcss@8.4.19
+      postcss: 8.4.19
+      tailwindcss: 3.2.4_postcss@8.4.19
 
   packages/tsconfig:
     specifiers: {}
@@ -4039,6 +4062,15 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
+  /phosphor-react/1.4.1_react@18.2.0:
+    resolution: {integrity: sha512-gO5j7U0xZrdglTAYDYPACU4xDOFBTJmptrrB/GeR+tHhCZF3nUMyGmV/0hnloKjuTrOmpSFlbfOY78H39rgjUQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
@@ -4275,7 +4307,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: true
 
   /read-cache/1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}

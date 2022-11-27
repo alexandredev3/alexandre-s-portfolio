@@ -1,56 +1,40 @@
 ---
 import { Icon } from "astro-icon";
 
+import { routes } from "../constants/routes";
+
 import Layout from "@/layouts/Layout.astro";
-
 import Button from "@/components/Button.astro";
-
-const LINKS = [
-  {
-    label: "home",
-    to: "#",
-  },
-  {
-    label: "works",
-    to: "#",
-  },
-  {
-    label: "about-me",
-    to: "#",
-  },
-  {
-    label: "contacts",
-    to: "#",
-  },
-];
+import Menu from "@/components/Menu.astro";
 ---
 
 <Layout title="Alexandre's nice portfolio">
-  <header class="flex items-center justify-between">
-    <div class="sm:flex hidden items-center gap-2">
+  <header class="flex items-center justify-between h-[42px]">
+    <div class="flex items-center gap-2">
       <Icon name="fe:code" class="w-5 h-5 text-yellow-300" />
       <h1 class="text-sm">Alexandre C.</h1>
     </div>
 
-    <nav>
+    <nav class="sm:inline hidden">
       <ol class="flex items-center gap-8">
         {
-          LINKS.map(({ label, to }) => (
-            <li>
-              <a href={to}>
-                <span class="text-yellow-300">#</span>
-                {label}
-              </a>
-            </li>
+          routes.map(({ label, pathname }) => (
+            <a href={pathname}>
+              <span class="text-yellow-300">
+                #<span class="text-white">{label}</span>
+              </span>
+            </a>
           ))
         }
         <!-- <li>language</li> -->
       </ol>
     </nav>
+
+    <Menu />
   </header>
 
-  <main>
-    <h1 class="text-lg mt-36">
+  <main class="sm:mt-36 mt-11">
+    <h1 class="text-lg">
       Alexandre is a
       <strong class="text-yellow-300">web <br /> developer</strong>
     </h1>
