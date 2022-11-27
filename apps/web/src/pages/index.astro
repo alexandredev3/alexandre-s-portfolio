@@ -1,11 +1,9 @@
 ---
 import { Icon } from "astro-icon";
 
-import { routes } from "../constants/routes";
-
 import Layout from "@/layouts/Layout.astro";
 import Button from "@/components/Button.astro";
-import Menu from "@/components/Menu.astro";
+import NavBar from "@/components/NavBar.astro";
 ---
 
 <Layout title="Alexandre's nice portfolio">
@@ -15,22 +13,7 @@ import Menu from "@/components/Menu.astro";
       <h1 class="text-sm">Alexandre C.</h1>
     </div>
 
-    <nav class="sm:inline hidden">
-      <ol class="flex items-center gap-8">
-        {
-          routes.map(({ label, pathname }) => (
-            <a href={pathname}>
-              <span class="text-yellow-300">
-                #<span class="text-white">{label}</span>
-              </span>
-            </a>
-          ))
-        }
-        <!-- <li>language</li> -->
-      </ol>
-    </nav>
-
-    <Menu class="sm:hidden block" />
+    <NavBar />
   </header>
 
   <main class="sm:mt-36 mt-11">

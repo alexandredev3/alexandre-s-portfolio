@@ -1,19 +1,27 @@
 ---
-import type { HTMLAttributes } from "react";
 import { Icon } from "astro-icon";
 import { Menu } from "@portfolio/react";
 
 import { routes, social } from "../constants";
-
-type Props = Omit<HTMLAttributes<HTMLDivElement>, "className"> & {
-  class: string;
-};
-
-const { class: className, ...rest } = Astro.props;
 ---
 
-<Menu client:load className={className} {...rest}>
-  <div>
+<nav class="sm:inline hidden">
+  <ol class="flex items-center gap-8">
+    {
+      routes.map(({ label, pathname }) => (
+        <a href={pathname}>
+          <span class="text-yellow-300">
+            #<span class="text-white">{label}</span>
+          </span>
+        </a>
+      ))
+    }
+    <!-- <li>language</li> -->
+  </ol>
+</nav>
+
+<Menu client:load className="sm:hidden block">
+  <nav>
     <ol class="mt-12">
       {
         routes.map(({ label, pathname }) => (
@@ -27,7 +35,7 @@ const { class: className, ...rest } = Astro.props;
         ))
       }
     </ol>
-  </div>
+  </nav>
   <footer class="absolute bottom-0 right-[50%] translate-x-[50%] p-8">
     <ul class="flex items-center gap-5">
       {
