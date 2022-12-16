@@ -14,7 +14,12 @@ export function Menu({ children, ...rest }: MenuProps) {
 
   return (
     <div {...rest}>
-      <button aria-label="Open Menu" onClick={handleToggleMenu}>
+      <button
+        aria-expanded={isOpen}
+        aria-controls="menu-panel"
+        aria-label="Menu"
+        onClick={handleToggleMenu}
+      >
         {isOpen ? (
           <X className="text-gray-200" focusable="false" size={28} />
         ) : (
@@ -24,7 +29,7 @@ export function Menu({ children, ...rest }: MenuProps) {
 
       {isOpen && (
         <Portal>
-          <div className="menu-panel">
+          <div role="navigation" id="menu-panel" className="menu-panel" aria-hidden={false}>
             {children}
           </div>
         </Portal>

@@ -25,10 +25,13 @@ import { routes, social } from "../constants";
     <ol class="mt-12">
       {
         routes.map(({ label, pathname }) => (
-          <li class="mt-8 first:mt-0">
+          <li role="menuitem" class="mt-8 first:mt-0">
             <a href={pathname} class="text-lg">
               <span class="text-yellow-300">
-                #<span class="text-white">{label}</span>
+                <>
+                  <span aria-hidden={true}>#</span>
+                  <span class="text-white">{label}</span>
+                </>
               </span>
             </a>
           </li>
@@ -36,7 +39,7 @@ import { routes, social } from "../constants";
       }
     </ol>
   </nav>
-  <footer class="absolute bottom-0 right-[50%] translate-x-[50%] p-8">
+  <footer class="flex justify-center mt-24 p-8">
     <ul class="flex items-center gap-5">
       {
         social.map(({ label, icon, url }) => (
