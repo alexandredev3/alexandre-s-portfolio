@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon";
+import { Timeline, TimelineItem } from "@portfolio/react";
 
 import Layout from "@/layouts/Layout.astro";
 import Button from "@/components/Button.astro";
@@ -35,20 +36,17 @@ import NavBar from "@/components/NavBar.astro";
     <section>
       <div class="flex justify-between text-sm mb-16">
         <div
-          class="flex items-center after:content-[''] after:block after:bg-yellow-300 after:ml-4 after:w-[512px] after:h-[2px]"
+          class="flex w-full items-center after:content-[''] after:block after:bg-yellow-300 after:ml-4 after:max-w-[512px] after:w-full after:h-[2px]"
         >
           <h1 class="text-lg">
             <span class="text-yellow-300">#</span>projects
           </h1>
         </div>
-        <button>View all {"~~>"}</button>
+        <button class="max-w-[116px] w-full">View all {"~~>"}</button>
       </div>
-      <div>
-        <div class="flex">
-          <span class="max-w-[82px] w-full">Jan 22</span>
-          <div
-            class="flex before:content-[''] before:block before:ml-[52px] before:mr-[42px] before:bg-yellow-300 before:h-full before:w-[1px]"
-          >
+      <Timeline>
+        <TimelineItem time="Jan 22">
+          <div class="flex justify-between">
             <div class="max-w-[508px] w-full">
               <h2 class="text-white text-sm font-bold">Example Project</h2>
               <p class="text-gray-200 leading-6 mt-2">
@@ -71,9 +69,15 @@ import NavBar from "@/components/NavBar.astro";
                 </Button>
               </div>
             </div>
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1671955100937-6c551efa6e15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=40"
+                class="w-full"
+              />
+            </div>
           </div>
-        </div>
-      </div>
+        </TimelineItem>
+      </Timeline>
     </section>
   </main>
 </Layout>

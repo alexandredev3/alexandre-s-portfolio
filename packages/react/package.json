@@ -13,10 +13,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@portfolio/styles": "workspace:*",
     "@portfolio/tsconfig": "workspace:*",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
-    "@portfolio/styles": "workspace:*",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.19",
     "react": "^18.2.0",
@@ -25,6 +25,7 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "clsx": "^1.2.1",
     "phosphor-react": "^1.4.1"
   }
 }

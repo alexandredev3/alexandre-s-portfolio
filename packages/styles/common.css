@@ -7,3 +7,7 @@
     @apply font-fira_code text-white bg-gray-800;
   }
 }
+
+/* .timeline-content {
+  @apply mt-2 first:mt-0;
+} */
